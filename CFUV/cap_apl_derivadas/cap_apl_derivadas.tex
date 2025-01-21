@@ -3,10 +3,36 @@
 \chapter{Aplicações das derivadas}\label{cap:apl_derivadas}\index{aplicações! derivadas}
 
 \emconstrucao
-
-\section{Teorema do valor médio}\index{teorema!do valor médio}
-\construirSec
-
+	Vamos primeiramente enunciar o teorema:
+	\begin{teo}[Teorema do valor médio]
+		Seja $f:[a,b]\to \mathbb{R}$ tal que $f$ é contínua em $[a,b]$ e derivável em $(a,b)$, então existe $c \in (a,b)$ tal que:
+		$$\frac{f(b) - f(a)}{b - a} = f'(c)$$
+	\end{teo}
+	Antes de passar diretamente para a prova do teorema, é interessante que o leitor entenda o sentido da equação a acima. Observe que o lado direito representa a taxa de variação instantânea em um ponto, enquanto o lado esquerdo, a taxa de variação média no intervalo. Logo, dentro das hipóteses do teorema, estamos afirmando que a taxa de variação média coincide com a instantânea em pelo menos um ponto do intervalo. 
+	
+	Para entender a importância disto, vamos estudar primeiramente um caso discreto: imagine que queremos calcular a média aritmética de uma certa quantidade de números reais positivos. Nesta situação, é possível que nenhum valor da amostra coincida com o valor da média. Um exemplo simples onde isso acontece é com os números $8,10$, que possuem média $9$. O problema aqui é que (dentre possíveis outras coisas) estamos "pulando" valores, justamente por estarmos trabalhando em um contexto discreto. No caso contínuo, isso não acontece. Sabemos que dada uma função contínua e dois elementos de sua imagem, ela sempre assume todos os valores entre esses elementos (teorema do valor intermediário).
+	
+	Veremos que atacar este problema utilizando a continuidade da função será o caminho que nos permitirá demonstrar o teorema. A maneira mais comum de prová-lo é utilizando um teorema auxiliar, chamado teorema de Rolle, que nada mais é que um caso especial do nosso objetivo principal.
+	\begin{teo}[Teorema de Rolle]
+		Seja $f:[a,b]\to \mathbb{R}$ tal que $f$ é contínua em $[a,b]$ e derivável em $(a,b)$, com $f(a) = f(b)$. Então existe $c \in (a,b)$ tal que:
+		$$f'(c) = 0$$
+	\end{teo}
+	\begin{proof}[Prova do teorema de Rolle]
+		Como $f$ é contínua, podemos separar a demonstração em 3 casos:
+		\begin{description}
+			\item[Caso 1:] $f$ assume o seu mínimo em $(a,b)$:
+		
+			Digamos que $f$ assuma seu mínimo em $c \in (a,b)$, logo $c$ é ponto crítico de $f$. Portanto, $f'(c)=0$.
+			\item[Caso 2:] $f$ assume o seu máximo em $(a,b)$:
+			
+			Analogamente, suponha que $f$ assuma seu máximo em $c \in (a,b)$, logo $c$ é ponto crítico de $f$ e, da mesma maneira, temos $f'(c)=0$.
+			\item[Caso 3:] $f$ não assume o seu máximo nem mínimo em $(a,b)$:
+			
+			Neste caso, observe que $f$ deve assumir seu máximo em algum dos pontos $a$ ou $b$, assim como também deve assumir seu mínimo nesses pontos. Como $f(a) = f(b)$, temos que o máximo e o mínimo de $f$ coincidem em $[a,b]$, logo $f$ é constante em $[a,b]$, ou seja $f'(x)=0$ para todo $x \in (a,b)$.
+			
+			Em cada um dos casos, garantimos a existência de um $c\in(a,b)$ tal que $f'(c) =0$, o que conclui a demonstração.
+		\end{description}
+	\end{proof}
 \subsection*{Exercícios resolvidos}
 
 \construirExeresol
